@@ -1,2 +1,8 @@
-<app-product></app-product>
-<app-product></app-product>
+<div [hidden]="!selectedProduct">
+  <span (click)="selectedProduct = undefined">X</span>
+  Vous avez selectionné : {{selectedProduct?.name}}
+</div>
+
+
+<app-product [product]="p1" (out)="receiveClickedProduct($event)"></app-product>
+<app-product [product]="p2" (out)="receiveClickedProduct($event)"></app-product>

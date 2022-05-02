@@ -15,4 +15,7 @@ export class ParentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  receiveHello(msg: number) {
+    console.log(`PARENT RECOIS DE ENFANT: ${msg}`)
+  }
 }

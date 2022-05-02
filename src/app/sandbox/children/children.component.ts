@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-children',
@@ -6,6 +6,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./children.component.scss']
 })
 export class ChildrenComponent implements OnInit {
+
+  @Output()
+  out = new EventEmitter<number>()
 
   @Input('desc')
   description!: string;
@@ -15,4 +18,7 @@ export class ChildrenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sayHello() {
+    this.out.emit(50);
+  }
 }

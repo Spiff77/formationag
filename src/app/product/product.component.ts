@@ -1,4 +1,5 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit,EventEmitter, Output} from '@angular/core';
+import {Product} from '../model/product.model';
 
 @Component({
   selector: 'app-product',
@@ -7,11 +8,17 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  @Output()
+  out = new EventEmitter<Product>();
+
+  @Input()
+  product!: Product
+
   constructor() { }
 
   @HostListener('click')
   clickProduct(){
-    console.log("Hello")
+    this.out.emit(this.product)
   }
 
   ngOnInit(): void {
