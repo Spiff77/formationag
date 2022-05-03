@@ -9,9 +9,11 @@ import {Product} from '../model/product.model';
 export class ProductListComponent implements OnInit {
 
   selectedProduct: Product|undefined
+  filterStr = '';
 
-  p1 = new Product(1, 'Cd', 'De la bonne musique', 'MUSIQUE', 10, true)
-  p2 = new Product(1, 'dvd', 'De la super musique', 'MUSIQUE', 12, true)
+
+  products = [new Product(1, 'Cd', 'De la bonne musique', 'MUSIQUE', 10, true),
+              new Product(1, 'dvd', 'De la super musique', 'MUSIQUE', 12, true)]
 
   constructor() { }
 
@@ -20,5 +22,9 @@ export class ProductListComponent implements OnInit {
 
   receiveClickedProduct(product: Product) {
     this.selectedProduct = product
+  }
+
+  getFilteredList(){
+    return this.products.filter(p => p.name.toLowerCase().includes(this.filterStr.toLowerCase()))
   }
 }

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  desc1 = "Hello ca va?"
-  desc2 = "Ouiiii"
+
+  descs = ["Hello ca va?", "Oui et toi?", "Super"]
 
   constructor() { }
 

@@ -3,6 +3,5 @@
   Vous avez selectionné : {{selectedProduct?.name}}
 </div>
 
-
-<app-product [product]="p1" (out)="receiveClickedProduct($event)"></app-product>
-<app-product [product]="p2" (out)="receiveClickedProduct($event)"></app-product>
+<input type="text" [(ngModel)]="filterStr" placeholder="Filtrer par nom">
+<app-product *ngFor="let p of getFilteredList()" [product]="p" (out)="receiveClickedProduct($event)"></app-product>

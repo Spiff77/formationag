@@ -8,9 +8,8 @@ import {Supplier} from '../model/supplier.model';
 })
 export class SupplierListComponent implements OnInit {
 
-  s1 =  new Supplier(11, 'aaa', '123456789101', 20000)
-  s2 =  new Supplier(11, 'aaa', '12345678910112', 20000)
-
+  suppliers = [new Supplier(11, 'aaa', '123456789101', 20000),
+               new Supplier(11, 'aaa', '12345678910112', 20000)]
   constructor() { }
 
   ngOnInit(): void {
