@@ -1,2 +1,5 @@
-<h3>{{product.name}} ({{product.category}})</h3>
+<pre>
+  {{product | json}}
+</pre>
+<h3>{{product.name | upperAndLength:true}} ({{product.category}})</h3>
 <p>{{product.description}}</p>

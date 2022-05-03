@@ -8,6 +8,10 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
 import { ParentComponent } from './sandbox/parent/parent.component';
 import { ChildrenComponent } from './sandbox/children/children.component';
+import { UpperAndLengthPipe } from './upper-and-length.pipe';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierListComponent } from './supplier-list/supplier-list.component';
+import { AnonymizeBankAccountPipe } from './anonymize-bank-account.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { ChildrenComponent } from './sandbox/children/children.component';
     ProductComponent,
     ParentComponent,
     ChildrenComponent,
+    UpperAndLengthPipe,
+    SupplierComponent,
+    SupplierListComponent,
+    AnonymizeBankAccountPipe,
   ],
   imports: [
     BrowserModule,
