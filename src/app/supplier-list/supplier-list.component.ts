@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Supplier} from '../model/supplier.model';
+import {SupplierService} from '../supplier.service';
 
 @Component({
   selector: 'app-supplier-list',
@@ -8,11 +9,11 @@ import {Supplier} from '../model/supplier.model';
 })
 export class SupplierListComponent implements OnInit {
 
-  suppliers = [new Supplier(11, 'aaa', '123456789101', 20000),
-               new Supplier(11, 'aaa', '12345678910112', 20000)]
-  constructor() { }
+  suppliers: Supplier[] = []
+  constructor(private supplierService:SupplierService) { }
 
   ngOnInit(): void {
+    this.suppliers = this.supplierService.findAll();
   }
 
 }

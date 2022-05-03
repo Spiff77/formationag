@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../model/product.model';
+import {ProductService} from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,14 +11,12 @@ export class ProductListComponent implements OnInit {
 
   selectedProduct: Product|undefined
   filterStr = '';
+  products: Product[] = []
 
-
-  products = [new Product(1, 'Cd', 'De la bonne musique', 'MUSIQUE', 10, true),
-              new Product(1, 'dvd', 'De la super musique', 'MUSIQUE', 12, true)]
-
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.products = this.productService.findAll()
   }
 
   receiveClickedProduct(product: Product) {

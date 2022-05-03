@@ -12,6 +12,9 @@ import { UpperAndLengthPipe } from './upper-and-length.pipe';
 import { SupplierComponent } from './supplier/supplier.component';
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { AnonymizeBankAccountPipe } from './anonymize-bank-account.pipe';
+import { SiblingComponent } from './sandbox/sibling/sibling.component';
+import {TestService} from './sandbox/test.service';
+import {SupplierService} from './supplier.service';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,13 @@ import { AnonymizeBankAccountPipe } from './anonymize-bank-account.pipe';
     SupplierComponent,
     SupplierListComponent,
     AnonymizeBankAccountPipe,
+    SiblingComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SupplierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
