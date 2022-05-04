@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../model/product.model';
 import {ProductService} from '../product.service';
+import {ProductHttpService} from '../product-http.service';
+import {Observable} from 'rxjs';
+import {ProductComunicationService} from '../product-comunication.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,12 +14,19 @@ export class ProductListComponent implements OnInit {
 
   selectedProduct: Product|undefined
   filterStr = '';
-  products: Product[] = []
+  products!: Observable<Product[]>
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductHttpService, private pc: ProductComunicationService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.findAll()
+    this.updateList();
+    this.pc.productUpdate.subscribe( v=> {
+      this.updateList();
+    } )
+  }
+
+  private updateList() {
+    this.products = this.productService.findAll();
   }
 
   receiveClickedProduct(product: Product) {
@@ -24,6 +34,10 @@ export class ProductListComponent implements OnInit {
   }
 
   getFilteredList(){
-    return this.products.filter(p => p.name.toLowerCase().includes(this.filterStr.toLowerCase()))
+   // return this.products.filter(p => p.name.toLowerCase().includes(this.filterStr.toLowerCase()))
+  }
+
+  refreshData() {
+    this.ngOnInit()
   }
 }

@@ -4,4 +4,4 @@
 </div>
 
 <input type="text" [(ngModel)]="filterStr" placeholder="Filtrer par nom">
-<app-product *ngFor="let p of getFilteredList()" [product]="p" (out)="receiveClickedProduct($event)"></app-product>
+<app-product *ngFor="let p of products | async" [product]="p" (outDelete)="refreshData()" (outProductInfo)="receiveClickedProduct($event)"></app-product>

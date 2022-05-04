@@ -1,5 +1,7 @@
 import {Component, HostListener, Input, OnInit,EventEmitter, Output} from '@angular/core';
 import {Product} from '../model/product.model';
+import {ProductService} from '../product.service';
+import {ProductHttpService} from '../product-http.service';
 
 @Component({
   selector: 'app-product',
@@ -9,19 +11,25 @@ import {Product} from '../model/product.model';
 export class ProductComponent implements OnInit {
 
   @Output()
-  out = new EventEmitter<Product>();
+  outProductInfo = new EventEmitter<Product>();
+
+  @Output()
+  outDelete = new EventEmitter<void>();
 
   @Input()
   product!: Product
 
-  constructor() { }
+  constructor(private productService: ProductHttpService) { }
 
   @HostListener('click')
   clickProduct(){
-    this.out.emit(this.product)
+    this.outProductInfo.emit(this.product)
   }
 
   ngOnInit(): void {
   }
 
+  delete() {
+    this.productService.delete(this.product.id).subscribe(v => this.outDelete.emit() )
+  }
 }

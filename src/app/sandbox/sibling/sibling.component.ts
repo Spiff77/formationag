@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TestService} from '../test.service';
+import {PostService} from '../post.service';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs';
+import {Post} from '../../model/post.model';
 
 @Component({
   selector: 'app-sibling',
@@ -8,11 +11,12 @@ import {TestService} from '../test.service';
 })
 export class SiblingComponent implements OnInit {
 
-  constructor(private testService: TestService) { }
+  posts: Post[] = []
+
+  constructor(private testService: PostService, private postService: PostService) { }
 
   ngOnInit(): void {
-    this.testService.info += '2'
-    console.log(this.testService.info)
+      this.postService.findAll().subscribe( v => this.posts = v)
   }
 
 }

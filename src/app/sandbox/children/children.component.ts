@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {TestService} from '../test.service';
+import {PostService} from '../post.service';
 
 @Component({
   selector: 'app-children',
@@ -14,11 +14,11 @@ export class ChildrenComponent implements OnInit {
   @Input('desc')
   description!: string;
 
-  constructor(private testService: TestService) { }
+  constructor(private testService: PostService) { }
 
   ngOnInit(): void {
-    this.testService.info += '1'
-    console.log(this.testService.info)
+  /*  this.testService.info += '1'*/
+   /*  console.log(this.testService.info)*/
   }
 
   sayHello() {
