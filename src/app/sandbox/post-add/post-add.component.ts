@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../post.service';
 
 @Component({
@@ -9,19 +9,23 @@ import {PostService} from '../post.service';
 })
 export class PostAddComponent implements OnInit {
 
-  constructor(private ps: PostService) { }
+  constructor(private ps: PostService, private fb: FormBuilder) { }
 
   form!: FormGroup;
+  formSubmitted = false;
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      id: new FormControl(),
-      title: new FormControl("Hello"),
-      body: new FormControl(),
+    this.form = this.fb.group({
+      id: [],
+      title: [, [Validators.required, Validators.minLength(3)]],
+      body: [, Validators.required],
     })
   }
 
   submitForm() {
-    this.ps.add(this.form.value).subscribe();
+    this.formSubmitted = true;
+    if(this.form.valid){
+      this.ps.add(this.form.value).subscribe();
+    }
   }
 }

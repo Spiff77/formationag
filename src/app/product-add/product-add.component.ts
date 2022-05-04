@@ -22,14 +22,15 @@ export class ProductAddComponent implements OnInit {
       description: new FormControl(),
       price: new FormControl("20"),
       promo: new FormControl(),
-      active: new FormControl("bbb")
+      active: new FormControl("true")
     })
   }
 
   submitForm() {
-    this.productService.add(this.form.value).subscribe(v=>
+    this.productService.add(this.form.value).subscribe(v=>{
       this.pc.productUpdate.emit()
-    );
+      this.form.reset();
+    });
 
   }
 }

@@ -1,34 +1,22 @@
 <h3>Add POST</h3>
 
-<pre>
-  {{form.value | json}}
-</pre>
-
 <form [formGroup]="form" (ngSubmit)="submitForm()">
-  <input type="hidden" formControlName="id">
-
+  <ul *ngIf="formSubmitted">
+    <li *ngIf="form.controls['title']?.errors?.['required']">Le titre est obligatoire</li>
+    <li *ngIf="form.controls['title']?.errors?.['minLength']">Le titre est trop court (3 car. min)</li>
+    <li *ngIf="form.controls['body']?.errors?.required">Le body est obligatoire</li>
+  </ul>
   <div>
-    <label for="name">name:</label>
-    <input type="text" id="name" formControlName="name">
+    <label for="ID">ID:</label>
+    <input type="text" id="ID" formControlName="id">
   </div>
   <div>
-    <label for="category">category:</label>
-    <textarea formControlName="category" id="category"></textarea>
+    <label for="title">title:</label>
+    <input type="text" id="title" formControlName="title">
   </div>
   <div>
-    <label for="price">price:</label>
-    <input type="number" id="price" formControlName="price">
-  </div>
-  <div>
-    <label for="promo">price:</label>
-    <input type="number" id="promo" formControlName="promo">
-  </div>
-  <div>
-    <label for="active">active:</label>
-    <input id="active" type="radio" formControlName="active" value="true">
-    <label for="nonactive">active:</label>
-    <input id="nonactive" type="radio" formControlName="active" value="true">
-    <input type="radio" formControlName="active" value="false">
+    <label for="body">body:</label>
+    <input type="text" id="body" formControlName="body">
   </div>
   <button type="submit">OK</button>
 </form>
