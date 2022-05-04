@@ -18,6 +18,26 @@ import {SupplierService} from './supplier.service';
 import {HttpClientModule} from '@angular/common/http';
 import { PostAddComponent } from './sandbox/post-add/post-add.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { SupplierAddComponent } from './supplier-add/supplier-add.component';
+import { HomeComponent } from './sandbox/home/home.component';
+import { Err404Component } from './sandbox/err404/err404.component';
+import {RouterModule, Routes} from '@angular/router';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+
+const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'parent', component: ParentComponent},
+  {path: 'parent/:name', component: ParentComponent},
+  {path: 'sibling', component: SiblingComponent},
+  {path: 'products', component: ProductListComponent},
+  {path: 'products/add', component: ProductAddComponent},
+  {path: 'products/:id', component: ProductDetailComponent},
+  {path: 'suppliers', component: SupplierListComponent},
+  {path: 'suppliers/add', component: SupplierAddComponent},
+  {path: 'addpost', component: PostAddComponent},
+  {path: '', redirectTo: 'home', pathMatch:"full"},
+  {path: '**', component: Err404Component},
+]
 
 @NgModule({
   declarations: [
@@ -34,12 +54,17 @@ import { ProductAddComponent } from './product-add/product-add.component';
     SiblingComponent,
     PostAddComponent,
     ProductAddComponent,
+    SupplierAddComponent,
+    HomeComponent,
+    Err404Component,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [SupplierService],
   bootstrap: [AppComponent]

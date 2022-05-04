@@ -1,0 +1,9 @@
+<h3>Product Detail</h3>
+<span *ngIf="!product">Loading...</span>
+<ul>
+  name:<li>{{product?.name}}</li>
+  desc:<li>{{product?.description}}</li>
+  price<li>{{product?.price}}</li>
+  promo<li>{{product?.promo}}</li>
+  supplier:<li>{{product?.supplier}}</li>
+</ul>

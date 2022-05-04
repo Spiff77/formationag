@@ -1,3 +1,5 @@
 <h3>{{product.name | upperAndLength:true}} ({{product.category}})</h3>
 <p>{{product.description}}</p>
 <button (click)="delete()">Delete</button>
+<button [routerLink]="['/products', product.id]">Detail</button>
+

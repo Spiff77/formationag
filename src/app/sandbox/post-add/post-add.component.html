@@ -3,12 +3,13 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <ul *ngIf="formSubmitted">
     <li *ngIf="form.controls['title']?.errors?.['required']">Le titre est obligatoire</li>
-    <li *ngIf="form.controls['title']?.errors?.['minLength']">Le titre est trop court (3 car. min)</li>
+    <li *ngIf="form.controls['title']?.errors?.['minlength']">Le titre est trop court (3 car. min)</li>
     <li *ngIf="form.controls['body']?.errors?.required">Le body est obligatoire</li>
+    <li *ngIf="getGroup('user').controls['mail']?.errors?.email">L'email n'est pas au bon format</li>
   </ul>
   <div>
-    <label for="ID">ID:</label>
-    <input type="text" id="ID" formControlName="id">
+    <label for="id">id:</label>
+    <input type="text" id="id" formControlName="id">
   </div>
   <div>
     <label for="title">title:</label>
@@ -17,6 +18,20 @@
   <div>
     <label for="body">body:</label>
     <input type="text" id="body" formControlName="body">
+  </div>
+  <div formGroupName="user">
+    <div>
+      <label for="id">id:</label>
+      <input type="text" id="user_id" formControlName="id">
+    </div>
+    <div>
+      <label for="login">login:</label>
+      <input type="text" id="login" formControlName="login">
+    </div>
+    <div>
+      <label for="mail">mail:</label>
+      <input type="text" id="mail" formControlName="mail" email>
+    </div>
   </div>
   <button type="submit">OK</button>
 </form>

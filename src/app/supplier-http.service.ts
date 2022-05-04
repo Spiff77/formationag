@@ -13,11 +13,15 @@ export class SupplierHttpService {
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Promise<Supplier[] | undefined>{
-    return this.http.get<Supplier[]>(this.url).toPromise();
+  findAll(): Observable<Supplier[]>{
+    return this.http.get<Supplier[]>(this.url);
   }
 
   delete(): Observable<void>{
     return this.http.delete<void>(this.url);
+  }
+
+  add(supplier: Supplier):  Observable<void> {
+    return this.http.post<void>(this.url, supplier);
   }
 }

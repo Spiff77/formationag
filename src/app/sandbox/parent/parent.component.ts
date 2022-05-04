@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {debounce, debounceTime, filter, fromEvent, interval, map, Observable, take} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-parent',
@@ -9,15 +10,22 @@ import {debounce, debounceTime, filter, fromEvent, interval, map, Observable, ta
 export class ParentComponent implements OnInit {
 
 
-  descs = ["Hello ca va?", "Oui et toi?", "Super"]
-  constructor() { }
+  descs: string[] = ["Super"]
+  constructor(private aRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let name = this.aRoute.snapshot.paramMap.get('name');
+    if(name)
+      this.descs.push(name);
 
 
+// Créer un composant: DetailsProduct
+// Le mapper à une route (products/:id) --> ex:products/5
 
-
-
+// Creér un lien vers chaque detail de produit
+// Afficher le détail du produit avec l'id 5
+    // --> FindOne de votre ProductService
+    // --> Affichage de ce produit
 
 
 

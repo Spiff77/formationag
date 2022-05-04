@@ -2,8 +2,9 @@ export class Person {
 
     private $id = 0;
 
-    constructor(private $firstName: string, private $lastName: string, private $active: boolean = true, private $age: number = 0) {
+    constructor(private $firstName: string = '', private $lastName: string='', private $active: boolean = true, private $age: number = 0) {
     }
+
 
     get id(): number {
       return this.$id;

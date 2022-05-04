@@ -3,39 +3,7 @@ import {Itaxable} from './itaxable.model';
 export class Supplier implements Itaxable{
 
 
-  constructor(private $id: number, private $companyName: string, private $bankAccountNumber: string, private $ca: number = 0) {
-  }
-
-  get companyName(): string {
-    return this.$companyName;
-  }
-
-  set companyName(value: string) {
-    this.$companyName = value;
-  }
-
-  get bankAccountNumber(): string {
-    return this.$bankAccountNumber;
-  }
-
-  set bankAccountNumber(value: string) {
-    this.$bankAccountNumber = value;
-  }
-
-  get id(): number {
-    return this.$id;
-  }
-
-  set id(value: number) {
-    this.$id = value;
-  }
-
-  get ca(): number {
-    return this.$ca;
-  }
-
-  set ca(value: number) {
-    this.$ca = value;
+  constructor(public id: number = -1, public companyName: string = '', public bankAccountNumber: string = '', public ca: number = 0) {
   }
 
   calculatedCa(): number {
