@@ -1,5 +1,22 @@
 <h3>{{product.name | upperAndLength:true}} ({{product.category}})</h3>
 <p>{{product.description}}</p>
-<button (click)="delete()">Delete</button>
-<button [routerLink]="['/products', product.id]">Detail</button>
+<button type="button" (click)="open(content)" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button>
+<button [routerLink]="['/products', product.id]" type="button" class="btn btn-info">Detail</button>
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Supprimer le produit: "{{product.name}}" ?</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        {{product.description}}
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="modal.dismiss()"  class="btn btn-outline-dark" >Annuler</button>
+    <button type="button"  (click)="delete()" class="btn btn-danger" >Supprimer <i class="bi bi-trash"></i></button>
+  </div>
+</ng-template>

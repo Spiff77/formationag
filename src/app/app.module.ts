@@ -23,9 +23,13 @@ import { HomeComponent } from './sandbox/home/home.component';
 import { Err404Component } from './sandbox/err404/err404.component';
 import {RouterModule, Routes} from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalplayComponent } from './sandbox/modalplay/modalplay.component';
+import { TestComponent } from './sandbox/test/test.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'modal', component: ModalplayComponent},
   {path: 'parent', component: ParentComponent},
   {path: 'parent/:name', component: ParentComponent},
   {path: 'sibling', component: SiblingComponent},
@@ -58,15 +62,18 @@ const routes: Routes = [
     HomeComponent,
     Err404Component,
     ProductDetailComponent,
+    ModalplayComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule
   ],
-  providers: [SupplierService],
+  providers: [SupplierService, NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

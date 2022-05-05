@@ -1,7 +1,8 @@
-import {Component, HostListener, Input, OnInit,EventEmitter, Output} from '@angular/core';
+import {Component, HostListener, Input, OnInit, EventEmitter, Output, TemplateRef} from '@angular/core';
 import {Product} from '../model/product.model';
 import {ProductService} from '../product.service';
 import {ProductHttpService} from '../product-http.service';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,9 @@ export class ProductComponent implements OnInit {
   @Input()
   product!: Product
 
-  constructor(private productService: ProductHttpService) { }
+  modalRef!: NgbModalRef;
+
+  constructor(private productService: ProductHttpService, private modalService: NgbModal) { }
 
   @HostListener('click')
   clickProduct(){
@@ -30,6 +33,17 @@ export class ProductComponent implements OnInit {
   }
 
   delete() {
-    this.productService.delete(this.product.id).subscribe(v => this.outDelete.emit() )
+    this.productService.delete(this.product.id).subscribe(v => {
+      this.modalRef.close();
+      this.outDelete.emit();
+    });
+  }
+
+  open(content: TemplateRef<any>) {
+    this.modalRef = this.modalService.open(content, {
+      backdropClass: 'bgBlue',
+
+
+    });
   }
 }
