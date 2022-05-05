@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ProductAddComponent} from '../product-add/product-add.component';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {}
 
-  ngOnInit(): void {
+  openAddProduct() {
+    this.modalService.open(ProductAddComponent);
   }
 
 }

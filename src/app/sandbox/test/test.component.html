@@ -1,1 +1,7 @@
-<button (click)="closeActive()">CLOSE</button>
+<h3>{{name}}</h3>
+<div>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, commodi ducimus, eligendi eveniet facilis iusto modi mollitia nisi, non obcaecati repudiandae ullam velit voluptate? Aliquam eos obcaecati quae quasi ullam.
+</div>
+
+<div (click)="activeModal.close('Close button')">close</div>
+<div (click)="activeModal.close('Close and save button')">close and save</div>

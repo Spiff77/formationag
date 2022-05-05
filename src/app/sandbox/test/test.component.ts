@@ -8,13 +8,12 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class TestComponent implements OnInit {
 
+  name = ''
+
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
-  closeActive(){
-    this.activeModal.close()
-  }
 
 }
