@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ProductComunicationService} from '../../product-comunication.service';
