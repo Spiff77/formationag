@@ -17,6 +17,10 @@ import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalplayComponent } from './sandbox/modalplay/modalplay.component';
 import { TestComponent } from './sandbox/test/test.component';
 import {ProductModule} from './product/product.module';
+import { CounterComponent } from './counter/counter.component';
+import {StoreModule} from '@ngrx/store';
+import {counterReducer} from './state/counter.reducer';
+import { FormCounterComponent } from './form-counter/form-counter.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,6 +29,8 @@ const routes: Routes = [
   {path: 'b', loadChildren: () => import('./sandbox/b/b.module').then( m => m.BModule)},
   {path: 'suppliers', loadChildren: () => import('./supplier/supplier.module').then( m => m.SupplierModule)},
   {path: 'parent', component: ParentComponent},
+  {path: 'counter', component: CounterComponent},
+  {path: 'counterform', component: FormCounterComponent},
   {path: 'parent/:name', component: ParentComponent},
   {path: 'sibling', component: SiblingComponent},
   {path: 'addpost', component: PostAddComponent},
@@ -44,6 +50,8 @@ const routes: Routes = [
     Err404Component,
     ModalplayComponent,
     TestComponent,
+    CounterComponent,
+    FormCounterComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +59,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     ProductModule,
+    StoreModule.forRoot({
+      counter: counterReducer
+    }),
     RouterModule.forRoot(routes),
     NgbModule,
   ],
