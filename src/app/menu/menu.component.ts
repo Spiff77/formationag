@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ProductAddComponent} from '../product-add/product-add.component';
+import {ProductAddComponent} from '../product/product-add/product-add.component';
 
 @Component({
   selector: 'app-menu',

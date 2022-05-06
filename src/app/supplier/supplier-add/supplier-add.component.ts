@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Supplier} from '../model/supplier.model';
-import {SupplierHttpService} from '../supplier-http.service';
+import {Supplier} from '../../model/supplier.model';
+import {SupplierHttpService} from '../../supplier-http.service';
 import {FormGroup, NgForm} from '@angular/forms';
 
 @Component({

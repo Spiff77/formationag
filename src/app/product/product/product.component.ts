@@ -1,8 +1,7 @@
 import {Component, HostListener, Input, OnInit, EventEmitter, Output, TemplateRef} from '@angular/core';
-import {Product} from '../model/product.model';
-import {ProductService} from '../product.service';
-import {ProductHttpService} from '../product-http.service';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {Product} from '../../model/product.model';
+import {ProductHttpService} from '../../product-http.service';
 
 @Component({
   selector: 'app-product',

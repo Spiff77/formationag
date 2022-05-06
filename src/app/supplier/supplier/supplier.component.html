@@ -1,4 +1,4 @@
-<h3>{{supplier.companyName}}</h3>
+<h3>{{supplier.companyName | upperAndLength:true}}</h3>
 <ul>
   <li>{{supplier.ca }}:  {{supplier.bankAccountNumber | anonymizeBankAccount:14}}</li>
 </ul>

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../model/product.model';
-import {ProductService} from '../product.service';
-import {ProductHttpService} from '../product-http.service';
 import {Observable} from 'rxjs';
-import {ProductComunicationService} from '../product-comunication.service';
+import {Product} from '../../model/product.model';
+import {ProductHttpService} from '../../product-http.service';
+import {ProductComunicationService} from '../../product-comunication.service';
 
 @Component({
   selector: 'app-product-list',

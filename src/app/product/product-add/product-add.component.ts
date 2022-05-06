@@ -1,11 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ProductHttpService} from '../product-http.service';
-import {ProductComunicationService} from '../product-comunication.service';
-import {Supplier} from '../model/supplier.model';
 import {Router} from '@angular/router';
-import {interval, of, Subscription, takeUntil, takeWhile} from 'rxjs';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {ProductComunicationService} from '../../product-comunication.service';
+import {ProductHttpService} from '../../product-http.service';
 
 @Component({
   selector: 'app-product-add',
@@ -33,8 +31,6 @@ export class ProductAddComponent implements OnInit {
       promo: new FormControl(),
       active: new FormControl("true")
     })
-
-    const s = new Supplier();
   }
 
   submitForm() {

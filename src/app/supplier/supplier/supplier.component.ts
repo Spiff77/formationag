@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Supplier} from '../model/supplier.model';
+import {Supplier} from '../../model/supplier.model';
 
 @Component({
   selector: 'app-supplier',
